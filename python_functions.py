@@ -1,35 +1,47 @@
 # 1. Write a function named sum_to that accepts a single integer, n, and returns the sum of the integers from 1 to n.
 def sum_to(n):
     return sum(range(1, n + 1)) ## use n+1 because range is exclusive of second argument
-# For example:
-
-# print(sum_to(6))  # returns 21
-# print(sum_to(10)) # returns 55
-
-# 2. Write a function named largest that takes a list of numbers as an argument and returns the largest number in that list.
 
 # For example:
+print(sum_to(6))  # returns 21
+print(sum_to(10)) # returns 55
 
-#  largest([1, 2, 3, 4, 0])  # returns 4
-#  largest([10, 4, 2, 231, 91, 54])  # returns 231
+# # 2. Write a function named largest that takes a list of numbers as an argument and returns the largest number in that list.
+def largest(nums):
+    return max(nums)
+
+# # For example:
+
+print(largest([1, 2, 3, 4, 0]))  # returns 4
+print(largest([10, 4, 2, 231, 91, 54]))  # returns 231
 
 # 3. Write a function named occurrences that takes two string arguments as input and counts the number of occurrences of the second string inside the first string.
+def occurrences(str1, str2):
+    count = 0
+    idx = 0
+    while True:
+        idx = str1.find(str2, idx)
+        if idx == -1:
+            break
+        count += 1
+        idx += 1
+    return count
 
-# For example:
-
-#  occurrences('fleep floop', 'e')   # returns 2
-#  occurrences('fleep floop', 'p')   # returns 2
-#  occurrences('fleep floop', 'ee')  # returns 1
-#  occurrences('fleep floop', 'fe')  # returns 0
+print(occurrences('fleep floop', 'e'))   # returns 2
+print(occurrences('fleep floop', 'p'))   # returns 2
+print(occurrences('fleep floop', 'ee'))  # returns 1
+print(occurrences('fleep floop', 'fe'))  # returns 0
 
 # 4. Write a function named product that takes an arbitrary number of numbers, multiplies them all together, and returns the product.
 # (HINT: Review your notes on *args).
-
+import math
+def product(*nums):
+    return math.prod(nums)
 # For example:
 
-#  product(-1, 4) # returns -4
-#  product(2, 5, 5) # returns 50
-#  product(4, 0.5, 5) # returns 10.0
+print(product(-1, 4)) # returns -4
+print(product(2, 5, 5)) # returns 50
+print(product(4, 0.5, 5)) # returns 10.0
 
 # Bonus Challenge: Write a function named steps_to_zero that accepts a non-negative integer as an argument, and returns the number of steps it took to reduce the integer to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
 
